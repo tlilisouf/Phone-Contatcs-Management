@@ -17,11 +17,10 @@ A simple application built on symfony 3.3.0 that manages phone contacts users.
     - php bin/console doctrine:schema:update --force
     
 <h1>5.Install assets :</h1>
-  php bin/console assets:install web
-  
-<strong>Login</strong>
+  php bin/console assets:install web<br>
+<strong>Login</strong><br>
 <img src="https://github.com/tlilisouf/Phone-Contatcs-Management/blob/ScreenShots/ScreenShots/login.png">
-<strong>Register</strong>
+<strong>Register</strong><br>
 <img src="https://github.com/tlilisouf/Phone-Contatcs-Management/blob/ScreenShots/ScreenShots/register%20.png">
-<strong>UserContacts</strong>
+<strong>UserContacts</strong><br>
 <img src="https://github.com/tlilisouf/Phone-Contatcs-Management/blob/ScreenShots/ScreenShots/contacts.png">
