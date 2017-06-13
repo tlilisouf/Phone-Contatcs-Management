@@ -10,10 +10,10 @@ A simple application build on symfony 3.3.0 that manages phone contacts users.
   Using composer.
   
 <h1>4.Create database :</h1> 
-  If your database does not exist yet :
-    - php bin/console doctrine:database:create
-  Create Tables :
-    - php bin/console doctrine:schema:update --dump-sql
+  If your database does not exist yet :<br>
+    - php bin/console doctrine:database:create<br>
+  Create Tables :<br>
+    - php bin/console doctrine:schema:update --dump-sql<br>
     - php bin/console doctrine:schema:update --force
     
 <h1>5.Install assets :</h1>
