@@ -1,4 +1,4 @@
-A simple application build on symfony 3.3.0 that manages phone contacts users.
+A simple application built on symfony 3.3.0 that manages phone contacts users.
 
 <h1>1.Installation :</h1>
   You can this code via git clone or direct download.
