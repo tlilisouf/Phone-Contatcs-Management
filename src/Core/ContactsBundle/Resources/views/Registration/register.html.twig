@@ -1,0 +1,88 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends "::base.html.twig" %}
+{% block fos_user_content %}
+    {% block navbar %}{% endblock navbar %}
+
+    <div class="row">
+        <div class="col s12 m8 offset-m2">
+            {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'),
+                'attr': {'class': 'fos_user_registration_register'}}) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            {{ form_label(form.firstName) }}
+            {{ form_widget(form.firstName) }}
+        </div>
+        {{ form_errors(form.firstName) }}
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            {{ form_label(form.lastName) }}
+            {{ form_widget(form.lastName) }}
+        </div>
+        {{ form_errors(form.firstName) }}
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            {{ form_label(form.username) }}
+            {{ form_widget(form.username) }}
+        </div>
+        {{ form_errors(form.username) }}
+    </div>
+    <div class="row no-padding">
+        <div class="input-field col s12">
+            {{ form_label(form.email) }}
+            {{ form_widget(form.email) }}
+        </div>
+        {{ form_errors(form.email) }}
+    </div>
+    <div class="row no-padding">
+        <div class="input-field col s12">
+            {{ form_label(form.plainPassword.first) }}
+            {{ form_widget(form.plainPassword.first) }}
+        </div>
+        {{ form_errors(form.plainPassword.first) }}
+    </div>
+    <div class="row no-padding">
+        <div class="input-field col s12">
+            {{ form_label(form.plainPassword.second) }}
+            {{ form_widget(form.plainPassword.second) }}
+        </div>
+        {{ form_errors(form.plainPassword.second) }}
+    </div>
+    <div class="row no-padding">
+        <div class="input-field col s12">
+            {{ form_label(form.birthday) }}<i class="glyphicon glyphicon-calendar"></i>
+            {{ form_widget(form.birthday) }}
+
+        </div>
+        {{ form_errors(form.birthday) }}
+    </div>
+    <div class="row no-padding">
+        <div class="input-field col s12">
+            {{ form_label(form.adress) }}
+            {{ form_widget(form.adress) }}
+        </div>
+        {{ form_errors(form.adress) }}
+    </div>
+    <div class="row no-padding">
+        <div class="input-field col s12">
+            {{ form_label(form.phone) }}
+            {{ form_widget(form.phone) }}
+        </div>
+        {{ form_errors(form.phone) }}
+    </div>
+    <div align="center" class="button-wrap">
+        <button class="btn btn-primary btn-large waves-effect waves-light" type="submit" name="action">
+            {{ 'registration.submit'|trans }}
+        </button>
+    </div>
+    {{ form_end(form) }}
+
+{% endblock fos_user_content %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/materialize.js') }}"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
+{% endblock %}

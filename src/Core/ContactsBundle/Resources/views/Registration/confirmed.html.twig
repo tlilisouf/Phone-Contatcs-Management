@@ -1,0 +1,7 @@
+{% extends "::base.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    <h4 class="text-center">{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</h4>
+{% endblock fos_user_content %}

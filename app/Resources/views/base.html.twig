@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    {% endblock stylesheets %}
+</head>
+<body>
+{% block body %}
+    {% trans_default_domain 'FOSUserBundle' %}
+    <div class="container navigation-list">
+        <div class="row">
+            <div class="col-sm-9" style="margin: 0;padding: 0;">
+                <img src="{{ asset('images/contact-icon.jpg') }}" class="img-circle img-responsive" alt="Contact-logo"
+                     width="100px"
+                     style="float: left;">
+                <h1>Phone Contacts Management</h1>
+            </div>
+            <div class="list-group col-sm-3 col-md-3 col-xs-5">
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
+                    <a href="{{ path('fos_user_security_logout') }}" class="list-group-item">
+                        <p>{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</p>
+                        <span
+                                class="glyphicon glyphicon-log-in"></span>
+                        <strong>{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</strong></a></li>
+                    </a>
+
+                    <a href="{{ path('contacts_index') }}" class="list-group-item"><strong>Manage Contacts</strong></a>
+                    <a href="{{ path('fos_user_profile_edit') }}" class="list-group-item"><p>
+                            {{ 'profile.show.username'|trans }}: {{ app.user.username }}
+                            {{ 'profile.show.email'|trans }}:{{ app.user.email }}</p><span
+                                class="glyphicon glyphicon-log-in"></span><strong> Edit Profile</strong></a>
+                    {% if is_granted("ROLE_ADMIN") %}
+                        <a href="{{ path('admin_index') }}" class="list-group-item"><strong>Manage Users</strong></a>
+                    {% endif %}
+
+                {% else %}
+                    <a href="{{ path('fos_user_security_login') }}" class="list-group-item"><span
+                                class="glyphicon glyphicon-log-in"></span>
+                        <strong> {{ 'layout.login'|trans({}, 'FOSUserBundle') }}</strong></a>
+                    <a href="{{ path('fos_user_registration_register') }}" class="list-group-item"><span
+                                class="glyphicon glyphicon-user"></span>
+                        <strong> Register</strong></a>
+                {% endif %}
+
+            </div>
+
+        </div>
+    </div>
+{% endblock body %}
+{% if app.request.hasPreviousSession %}
+    {% for type, messages in app.session.flashbag.all() %}
+        {% for message in messages %}
+            <div class="flash-{{ type }}">
+                <h4 class="text-center">{{ message }}</h4>
+            </div>
+        {% endfor %}
+    {% endfor %}
+{% endif %}
+
+<div class="container">
+    {% block fos_user_content %}
+
+    {% endblock fos_user_content %}
+    {% block footer %} {% include 'footer.html.twig' %} {% endblock footer %}
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+{% block javascripts %}
+    <script src="{{ asset('js/script.js') }}"></script>
+{% endblock %}
+</body>
+</html>

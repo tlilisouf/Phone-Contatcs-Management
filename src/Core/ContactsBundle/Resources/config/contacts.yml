@@ -1,0 +1,33 @@
+contacts_index:
+    path:  /contacts
+    defaults: { _controller: CoreContactsBundle:Contact:index }
+    methods: GET
+
+contacts_add:
+    path:  /add
+    defaults: { _controller: CoreContactsBundle:Contact:add }
+
+contacts_show:
+    path:  /{id}
+    defaults: { _controller: CoreContactsBundle:Contact:show }
+    methods: GET
+    requirements:
+        id: \d+
+
+contacts_delete:
+    path:  /{id}/delete
+    defaults: { _controller: CoreContactsBundle:Contact:delete }
+    methods: POST
+    requirements:
+        id: \d+
+
+contacts_edit:
+    path:  /{id}/edit
+    defaults: { _controller: CoreContactsBundle:Contact:edit }
+    methods: [GET, POST]
+    requirements:
+        id: \d+
+
+contacts_export_csv:
+    path: /export/csv
+    defaults: { _controller: CoreContactsBundle:Contact:exportCSV }

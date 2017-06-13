@@ -1,0 +1,46 @@
+{% extends '::base.html.twig' %}
+{% block fos_user_content %}
+
+    <div class="row">
+        <div class="col-lg-12">
+            {{ form_start(edit_form, {'method': 'post', 'action': path('contacts_edit', {id: contact.id}),
+                'attr': {'class': 'edit'}}) }}
+            <div class="box">
+                <div class="box-header">
+                    <h2>
+                        <i class="fa fa-home"></i>
+                        <span class="break">Modification of {{ contact.name|capitalize }}</span>
+                    </h2>
+                </div>
+                <div class="box-content">
+                    {{ form_errors(edit_form) }}
+                    <div class="col-md-12 form-group clearfix">
+                        <span>{{ form_row(edit_form.name) }}</span>
+                    </div>
+                    <div class="col-md-12 form-group clearfix">
+                        <span>{{ form_row(edit_form.phone) }}</span>
+                    </div>
+                    <div class="col-md-12 form-group clearfix">
+                        <span>{{ form_row(edit_form.email) }}</span>
+                    </div>
+                    <div class="col-md-12 form-group clearfix">
+                        <span>{{ form_row(edit_form.adress) }}</span>
+                    </div>
+                    <div class="form-group clearfix">
+                        <div class="box-content">
+                            {{ form_rest(edit_form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="{{ path('contacts_index') }}" class="btn btn-md btn-info">
+                <i class="fa fa-arrow-left"></i> Back
+            </a>
+            <button type="submit" class="submit btn btn-md btn-warning" style="float:right">
+                <i class="fa fa-pencil"></i> Alter
+            </button>
+            {{ form_end(edit_form) }}
+        </div>
+    </div>
+
+{% endblock fos_user_content %}

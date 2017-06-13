@@ -1,0 +1,60 @@
+core_contacts_homepage:
+    path:     /
+    defaults: { _controller: CoreContactsBundle:Default:home }
+
+app_contacts:
+    resource: "@CoreContactsBundle/Resources/config/contacts.yml"
+    prefix: /
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /profile
+
+admin_index:
+    path:   /admin
+    defaults: { _controller: CoreContactsBundle:Admin:admin }
+
+admin_login:
+    path:  /admin/login
+    defaults: { _controller: FOSUserBundle:Security:login }
+    methods: GET
+
+admin_login_check:
+    path:  /admin/login_check
+    defaults: { _controller: FOSUserBundle:Security:check }
+    methods: GET
+
+admin_logout:
+    path:  /admin/logout
+    defaults: { _controller: FOSUserBundle:Security:logout }
+    methods: GET
+
+user_delete:
+    path:  /delete/{id}
+    defaults: { _controller: CoreContactsBundle:Admin:delete }
+    methods: POST
+    requirements:
+        id: \d+
+
+send_mail:
+    path: /sendMail
+    defaults: { _controller: CoreContactsBundle:Contact:send }
+    methods: POST
