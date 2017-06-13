@@ -19,8 +19,9 @@ A simple application built on symfony 3.3.0 that manages phone contacts users.
 <h1>5.Install assets :</h1>
   php bin/console assets:install web
   
-<strong>Enjoy.</strong>
-
+<strong>Login</strong>
 <img src="https://github.com/tlilisouf/Phone-Contatcs-Management/blob/ScreenShots/ScreenShots/login.png">
+<strong>Register</strong>
 <img src="https://github.com/tlilisouf/Phone-Contatcs-Management/blob/ScreenShots/ScreenShots/register%20.png">
+<strong>UserContacts</strong>
 <img src="https://github.com/tlilisouf/Phone-Contatcs-Management/blob/ScreenShots/ScreenShots/contacts.png">
